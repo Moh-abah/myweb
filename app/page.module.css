@@ -1,25 +1,6 @@
 /* ملف page.module.css */
 
-:root {
-  /* نظام الألوان المتطور */
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --secondary-gradient: linear-gradient(45deg, #ff6b6b, #ff9f43);
-  --dark-bg: #0f172a;
-  --light-bg: #f8fafc;
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --accent-color: #4f46e5;
-  --hover-effect: brightness(0.95);
 
-  /* الظلال الديناميكية */
-  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.3);
-
-  /* الحركات والانتقالات */
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* التصميم العام */
 .page {
