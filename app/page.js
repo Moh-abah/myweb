@@ -7,7 +7,7 @@ import { Metadata } from 'next'
 export const metadata = {
   title: "محمد يحيى عبه | مطور Full-Stack",
   description: "مطور ويب وموبايل متخصص في Next.js وFlutter. بناء حلول تقنية بتجارب مستخدم مميزة.",
-  keywords: ["محمد يحيى عبه", "مطور Flutter", "Next.js", "تطوير ويب", "مطور يمني"],
+  keywords: ["محمد يحيى عبه", "مطور Flutter", "Next.js", "تطوير ويب", "مطور يمني", "بناء تطبيقات الموبايل", " تصميم مدونه شخصيه", "بناء backend", " مبرمج مواقع الويب", "عبه ", " محمد عبه", " تطوير api", "تطبيقات الاندرويد ", "باور بي اي ", "power bi"],
   openGraph: {
     images: [
       {
