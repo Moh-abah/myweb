@@ -1,33 +1,5 @@
 /* ملف Home.module.css */
 
-/********** المتغيرات المخصصة **********/
-:root {
-  /* الألوان */
-  --primary-500: #6366f1;
-  --primary-600: #4f46e5;
-  --dark-bg: #0f172a;
-  --light-bg: #f8fafc;
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --accent-color: #f59e0b;
-  --success: #10b981;
-  --error: #ef4444;
-
-  /* التدرجات */
-  --primary-gradient: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
-  --glass-effect: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-
-  /* الظلال */
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-
-  /* التحولات */
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
 /********** التصميم العام **********/
 .page {
   min-height: 100vh;
@@ -49,7 +21,7 @@
   position: relative;
   overflow: hidden;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgb(255, 255, 255);
   backdrop-filter: blur(20px);
 }
 
@@ -95,7 +67,7 @@
 .holographicImage {
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
+  filter: drop-shadow(0 0 20px rgba(99, 213, 241, 0.3));
 }
 
 .techOrbit {
@@ -112,7 +84,7 @@
   position: absolute;
   font-size: 2.5rem;
   color: var(--primary-500);
-  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.929));
 }
 
 @keyframes orbit {
@@ -185,55 +157,184 @@
 }
 
 /********** المشاريع **********/
-.projectsMasonry {
-  column-count: 3;
-  column-gap: 2rem;
-  margin-top: 2rem;
+/* مشاريع بتصميم حديث */
+.projectsSection {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sectionTitleText {
+  position: relative;
+  background: linear-gradient(45deg, var(--primary-500), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleUnderline {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-gradient);
+  transform-origin: left;
+  animation: underlineGrow 1s ease-out;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
 }
 
 .projectCard {
-  break-inside: avoid;
-  margin-bottom: 2rem;
-  background: var(--glass-effect);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 1.5rem;
   overflow: hidden;
-  backdrop-filter: blur(10px);
-  transition: var(--transition-smooth);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .projectCard:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-.projectMedia {
+.projectImageWrapper {
   position: relative;
   overflow: hidden;
+  height: 250px;
 }
 
 .projectImage {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projectCard:hover .projectImage {
   transform: scale(1.05);
 }
 
-.projectOverlay {
+.projectBadges {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-  padding: 1.5rem;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.projectYear,
+.projectType {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.projectYear {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary-500);
+}
+
+.projectType {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-color);
+}
+
+.projectBody {
+  padding: 1.5rem;
+}
+
+.projectTitle {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.projectArrow {
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .projectArrow {
+  transform: translateX(5px);
+}
+
+.projectDescription {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techPill {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  background: rgba(99, 102, 241, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.techPill:hover {
+  background: var(--primary-500);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.techPill:hover .techIcon {
+  color: white;
+}
+
+.techIcon {
+  font-size: 1.1rem;
+  color: var(--primary-500);
+}
+
+@keyframes underlineGrow {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .projectCard {
+    margin-bottom: 1.5rem;
+  }
 }
 
 /********** شبكة التواصل **********/

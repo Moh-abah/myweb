@@ -48,7 +48,7 @@ export default function Home() {
     description: "مطور حلول رقمية مبتكرة بخبرة في أنظمة المؤسسات والتطبيقات المعقدة",
     alumniOf: {
       "@type": "EducationalOrganization",
-      name: "جامعة صنعاء",
+      name: "جامعه العلوم الحديثه",
       startDate: "2017",
       endDate: "2021"
     },
@@ -174,47 +174,65 @@ export default function Home() {
         <section className={styles.projectsSection}>
           <h2 className={styles.sectionTitle}>
             <FiCode className={styles.sectionIcon} />
-            مشاريع مميزة
-            <span className={styles.sectionTitleGlow} />
+            <span className={styles.sectionTitleText}>
+              مشاريع مميزة
+              <span className={styles.titleUnderline} aria-hidden="true"></span>
+            </span>
           </h2>
 
-          <div className={styles.projectsMasonry}>
+          <div className={styles.projectsGrid}>
             {projects.map((project, index) => (
               <article
                 key={index}
-                className={`${styles.projectCard} ${styles[`projectLayer${index % 3}`]}`}
+                className={styles.projectCard}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
-                <div className={styles.projectMedia}>
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    className={styles.projectImage}
-                  />
-                  <div className={styles.projectOverlay}>
-                    <div className={styles.projectMeta}>
+                <div className={styles.projectHeader}>
+                  <div className={styles.projectImageWrapper}>
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={600}
+                      height={400}
+                      className={styles.projectImage}
+                      loading="lazy"
+                    />
+                    <div className={styles.projectBadges}>
                       <span className={styles.projectYear}>{project.year}</span>
-                      <span className={styles.projectClient}>{project.client}</span>
+                      <span className={styles.projectType}>{project.client}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className={styles.projectContent}>
-                  <h3 className={styles.projectTitle}>
-                    {project.title}
-                    <FiArrowUpRight className={styles.projectArrow} />
-                  </h3>
-                  <p className={styles.projectDescription}>{project.description}</p>
-                  <div className={styles.techStack}>
-                    {project.tech.map((tech, i) => (
-                      <span key={i} className={styles.techPill}>
-                        {tech}
-                        <span className={styles.techPillIcon}>
-                          {i % 2 === 0 ? <FiCode /> : <FiDatabase />}
+                <div className={styles.projectBody}>
+                  <div className={styles.projectMeta}>
+                    <h3 className={styles.projectTitle}>
+                      {project.title}
+                      <FiArrowUpRight className={styles.projectArrow} />
+                    </h3>
+                    <p className={styles.projectDescription}>{project.description}</p>
+                  </div>
+
+                  <div className={styles.projectFooter}>
+                    <div className={styles.techStack}>
+                      {project.tech.map((tech, i) => (
+                        <span
+                          key={i}
+                          className={styles.techPill}
+                          data-tooltip={i % 2 === 0 ? "Frontend" : "Backend"}
+                        >
+                          {tech}
+                          <span className={styles.techIcon}>
+                            {i % 2 === 0 ? (
+                              <FiCode className={styles.iconFrontend} />
+                            ) : (
+                              <FiDatabase className={styles.iconBackend} />
+                            )}
+                          </span>
                         </span>
-                      </span>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
               </article>
