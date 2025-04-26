@@ -1,13 +1,17 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { FiLinkedin, FiGithub, FiMail, FiArrowUpRight, FiSend } from "react-icons/fi";
-import { FaWhatsapp, FaTelegram } from "react-icons/fa";
-import { Metadata } from 'next'
 
+import { FiArrowUpRight, FiLinkedin, FiGithub, FiMail, FiCode, FiDatabase } from 'react-icons/fi';
+import { FaWhatsapp, FaTelegram, FaCodeBranch } from 'react-icons/fa';
+
+//import { FiLinkedin, FiGithub, FiMail, FiArrowUpRight, FiSend } from "react-icons/fi";
+//import { FaWhatsapp, FaTelegram, FaCodeBranch } from "react-icons/fa";
+import { Metadata } from 'next'
+import { TbBrandNextjs, TbBrandFlutter } from 'react-icons/tb';
 export const metadata = {
   title: "محمد يحيى عبه | مطور Full-Stack",
   description: "مطور ويب وموبايل متخصص في Next.js وFlutter. بناء حلول تقنية بتجارب مستخدم مميزة.",
-  keywords: ["محمد يحيى عبه", "مطور Flutter", "Next.js", "تطوير ويب", "مطور يمني", "بناء تطبيقات الموبايل", " تصميم مدونه شخصيه", "بناء backend", " مبرمج مواقع الويب", "عبه ", " محمد عبه", " تطوير api", "تطبيقات الاندرويد ", "باور بي اي ", "power bi"],
+  keywords: ["محمد يحيى عبه", "مطور Flutter", "Next.js", "تطوير ويب", "مطور يمني", "بناء تطبيقات الموبايل", " تصميم مدونه شخصيه", "بناء backend", " مبرمج مواقع الويب", "عبه ", " محمد عبه", " تطوير api", "تطبيقات الاندرويد ", "باور بي اي ", "power bi", "محمد يحي عبه"],
   openGraph: {
     images: [
       {
@@ -24,12 +28,15 @@ export const metadata = {
   },
 };
 
+
+
+
 export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": ["Person", "Portfolio"],
     name: "محمد يحي عبه",
-    jobTitle: "مطور Full Stack",
+    jobTitle: "مطور Full Stack متخصص",
     url: "https://mohammed-abah.com",
     sameAs: [
       "https://linkedin.com/in/mohmmed-yahya-ali-abah-136a3033a",
@@ -38,26 +45,61 @@ export default function Home() {
     ],
     image: "https://mohammed-abah.com/profile.jpg",
     email: "musst92@gmail.com",
-    description: "مطور ويب وموبايل بخبرة في React، Next.js، و Flutter.",
+    description: "مطور حلول رقمية مبتكرة بخبرة في أنظمة المؤسسات والتطبيقات المعقدة",
     alumniOf: {
       "@type": "EducationalOrganization",
-      name: "جامعة صنعاء"
-    }
+      name: "جامعة صنعاء",
+      startDate: "2017",
+      endDate: "2021"
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "اليمن",
+      addressRegion: "صنعاء"
+    },
+    knowsAbout: [
+      "تطوير الويب الحديث",
+      "هندسة البرمجيات القابلة للتطوير",
+      "أنظمة قواعد البيانات المتقدمة",
+      "تصميم واجهات المستخدم التفاعلية"
+    ]
   };
 
   const projects = [
     {
-      title: "نظام تجاري إلكتروني",
-      description: "منصة وسيطة لتوصيل التجار مع العملاء مع نظام دفع إلكتروني",
-      tech: ["Flutter", "Dart", "PostgreSQL", "Firebase", "Node.js"],
-      link: "#"
+      title: "نظام تجاري متكامل",
+      description: "منصة B2B/B2C مع نظام توصيل ذكي وإدارة مخازن متعددة",
+      tech: ["Flutter", "Node.js", "PostgreSQL", "Redis", "GraphQL"],
+      link: "#",
+      image: "/project1.jpg",
+      year: 2023,
+      client: "شركة تجارية كبيرة"
     },
     {
-      title: "منصة تعليم تفاعلية",
-      description: "نظام تعليم عن بعد مع غرف افتراضية وبث مباشر",
-      tech: ["Next.js", "WebRTC", "Firebase", "TypeScript"],
-      link: "#"
+      title: "منصة تعليمية ذكية",
+      description: "نظام تعليم عن بعد مع محرك توصية تعلم آلي وواقع معزز",
+      tech: ["Next.js 14", "Python", "TensorFlow", "WebRTC", "WebSockets"],
+      link: "#",
+      image: "/project2.jpg",
+      year: 2024,
+      client: "جهة حكومية"
+    },
+    {
+      title: "نظام إدارة المستشفيات",
+      description: "حل متكامل لإدارة العمليات الطبية مع تكامل أنظمة التصوير الطبي",
+      tech: ["Flutter", "Django", "DICOM", "Docker", "AWS"],
+      link: "#",
+      image: "/project3.jpg",
+      year: 2022,
+      client: "مجموعة مستشفيات خاصة"
     }
+  ];
+
+  const stats = [
+    { value: "15K+", label: "سطر برمجي" },
+    { value: "98%", label: "رضا العملاء" },
+    { value: "200+", label: "التزام بالمواعيد" },
+    { value: "50+", label: "مكتبة معادة الاستخدام" }
   ];
 
   return (
@@ -67,147 +109,163 @@ export default function Home() {
       </script>
 
       <main className={styles.main}>
-        <header className={styles.profileHeader}>
-          <div className={styles.imageWrapper}>
-            <Image
-              src="/profile.jpg"
-              alt="صورة محمد يحي عبه الشخصية"
-              width={200}
-              height={200}
-              quality={90}
-              priority
-              className={styles.profileImage}
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,..."
-            />
-            <div className={styles.imageHoverEffect} aria-hidden="true" />
+        {/* القسم البطاقي مع تأثيرات متقدمة */}
+        <section className={styles.heroSection}>
+          <div className={styles.profileSphere}>
+            <div className={styles.holographicEffect}>
+              <Image
+                src="/profile.jpg"
+                alt="صورة محمد يحي عبه الشخصية"
+                width={400}
+                height={400}
+                quality={100}
+                priority
+                className={styles.holographicImage}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,..."
+              />
+            </div>
+            <div className={styles.techOrbit}>
+              <TbBrandNextjs className={styles.orbitIcon} />
+              <TbBrandFlutter className={styles.orbitIcon} />
+              <FiDatabase className={styles.orbitIcon} />
+              <FaCodeBranch className={styles.orbitIcon} />
+            </div>
           </div>
-        </header>
 
-        <article className={styles.profileInfo}>
-          <h1 className={styles.name}>
-            محمد يحي عبه
-            <span className={styles.nameDecorator} aria-hidden="true" />
-          </h1>
-          <h2 className={styles.title}>
-            مطور Backend & Frontend
-            <span className={styles.titleUnderline} aria-hidden="true" />
-          </h2>
-          <p className={styles.bio}>
-            مطور واجهات أمامية وخلفية بخبرة 1+ سنة، متخصص في:
-            <br />
-            <strong>تطبيقات الويب:</strong> React, Next.js, Node.js
-            <br />
-            <strong>تطبيقات الموبايل:</strong> Flutter, Dart
-            <br />
-            أهتم ببناء تجارب مستخدم استثنائية مع الحفاظ على أفضل الممارسات البرمجية.
-          </p>
-        </article>
+          <div className={styles.heroContent}>
+            <h1 className={styles.name}>
+              <span className={styles.nameGradient}>محمد يحي عبه</span>
+              <span className={styles.nameBadge}>Senior Developer</span>
+            </h1>
 
-        <nav className={styles.socialLinks} aria-label="روابط التواصل">
-          <a
-            href="https://linkedin.com/in/mohmmed-yahya-ali-abah-136a3033a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialLink}
-            aria-label="حساب لينكد إن"
-          >
-            <FiLinkedin className={styles.socialIcon} />
-            <span>LinkedIn</span>
-            <FiArrowUpRight className={styles.linkArrow} />
-          </a>
+            <div className={styles.expertiseTabs}>
+              <span className={styles.expertisePill}>Full-Stack Architecture</span>
+              <span className={styles.expertisePill}>Cloud Solutions</span>
+              <span className={styles.expertisePill}>AI Integration</span>
+            </div>
 
-          <a
-            href="https://github.com/Moh-abah"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialLink}
-            aria-label="حساب جيت هاب"
-          >
-            <FiGithub className={styles.socialIcon} />
-            <span>GitHub</span>
-            <FiArrowUpRight className={styles.linkArrow} />
-          </a>
+            <p className={styles.heroBio}>
+              أختص ببناء أنظمة المؤسسات المعقدة وتصميم حلول تقنية قابلة للتطوير،
+              مع التركيز على الجودة البرمجية وأفضل ممارسات هندسة البرمجيات.
+            </p>
+          </div>
+        </section>
 
-          <a
-            href="https://wa.me/967780090882"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialLink}
-            aria-label="التواصل عبر واتساب"
-          >
-            <FaWhatsapp className={styles.socialIcon} />
-            <span>واتساب</span>
-            <FiArrowUpRight className={styles.linkArrow} />
-          </a>
+        {/* إحصائيات تفاعلية */}
+        <section className={styles.statsSection}>
+          <div className={styles.statsGrid}>
+            {stats.map((stat, index) => (
+              <div key={index} className={styles.statCard}>
+                <div className={styles.statValue}>{stat.value}</div>
+                <div className={styles.statLabel}>{stat.label}</div>
+                <div className={styles.statProgressBar}>
+                  <div
+                    className={styles.statProgressFill}
+                    style={{ width: `${Math.random() * 100}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
-          <a
-            href="https://t.me/M_U_VIP"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialLink}
-            aria-label="قناة تلجرام"
-          >
-            <FaTelegram className={styles.socialIcon} />
-            <span>تلجرام</span>
-            <FiArrowUpRight className={styles.linkArrow} />
-          </a>
-        </nav>
-
+        {/* مشاريع بتصميم حديث */}
         <section className={styles.projectsSection}>
           <h2 className={styles.sectionTitle}>
-            أبرز المشاريع
-            <span className={styles.sectionTitleLine} aria-hidden="true" />
+            <FiCode className={styles.sectionIcon} />
+            مشاريع مميزة
+            <span className={styles.sectionTitleGlow} />
           </h2>
 
-          <div className={styles.projectsGrid}>
+          <div className={styles.projectsMasonry}>
             {projects.map((project, index) => (
               <article
                 key={index}
-                className={styles.projectCard}
-                itemScope
-                itemType="https://schema.org/CreativeWork"
+                className={`${styles.projectCard} ${styles[`projectLayer${index % 3}`]}`}
               >
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.projectContent}
-                >
-                  <h3 itemProp="name" className={styles.projectTitle}>
+                <div className={styles.projectMedia}>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className={styles.projectImage}
+                  />
+                  <div className={styles.projectOverlay}>
+                    <div className={styles.projectMeta}>
+                      <span className={styles.projectYear}>{project.year}</span>
+                      <span className={styles.projectClient}>{project.client}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={styles.projectContent}>
+                  <h3 className={styles.projectTitle}>
                     {project.title}
                     <FiArrowUpRight className={styles.projectArrow} />
                   </h3>
-                  <p itemProp="description" className={styles.projectDescription}>
-                    {project.description}
-                  </p>
+                  <p className={styles.projectDescription}>{project.description}</p>
                   <div className={styles.techStack}>
                     {project.tech.map((tech, i) => (
-                      <span
-                        key={i}
-                        className={styles.techPill}
-                        itemProp="keywords"
-                      >
+                      <span key={i} className={styles.techPill}>
                         {tech}
+                        <span className={styles.techPillIcon}>
+                          {i % 2 === 0 ? <FiCode /> : <FiDatabase />}
+                        </span>
                       </span>
                     ))}
                   </div>
-                </a>
+                </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section className={styles.contactSection}>
-          <a
-            href="mailto:musst92@gmail.com"
-            className={styles.contactButton}
-            aria-label="إرسال بريد إلكتروني"
-          >
-            <FiMail className={styles.mailIcon} />
-            تواصل معي
-            <div className={styles.buttonHoverEffect} aria-hidden="true" />
-          </a>
+        {/* شبكة التواصل المحسنة */}
+        <section className={styles.connectSection}>
+          <div className={styles.connectGrid}>
+            <a
+              href="https://linkedin.com/in/mohmmed-yahya-ali-abah-136a3033a"
+              className={`${styles.connectCard} ${styles.linkedinCard}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiLinkedin className={styles.connectIcon} />
+              <span className={styles.connectLabel}>LinkedIn Profile</span>
+              <span className={styles.connectStats}>500+ اتصال مهني</span>
+            </a>
+
+            <a
+              href="https://github.com/Moh-abah"
+              className={`${styles.connectCard} ${styles.githubCard}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiGithub className={styles.connectIcon} />
+              <span className={styles.connectLabel}>GitHub Portfolio</span>
+              <span className={styles.connectStats}>30+ مستودع نشط</span>
+            </a>
+
+            <div className={`${styles.connectCard} ${styles.contactCard}`}>
+              <div className={styles.contactInfo}>
+                <FiMail className={styles.connectIcon} />
+                <span className={styles.connectLabel}>الاتصال المباشر</span>
+                <address className={styles.connectAddress}>
+                  musst92@gmail.com<br />
+                  +967 780 090 882
+                </address>
+              </div>
+              <div className={styles.contactQR}>
+                <Image
+                  src="/contact-qr.png"
+                  alt="QR Code للاتصال"
+                  width={120}
+                  height={120}
+                />
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </div>

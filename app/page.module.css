@@ -1,8 +1,34 @@
-/* ملف page.module.css */
+/* ملف Home.module.css */
 
+/********** المتغيرات المخصصة **********/
+:root {
+  /* الألوان */
+  --primary-500: #6366f1;
+  --primary-600: #4f46e5;
+  --dark-bg: #0f172a;
+  --light-bg: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --accent-color: #f59e0b;
+  --success: #10b981;
+  --error: #ef4444;
 
+  /* التدرجات */
+  --primary-gradient: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+  --glass-effect: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
 
-/* التصميم العام */
+  /* الظلال */
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+  /* التحولات */
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/********** التصميم العام **********/
 .page {
   min-height: 100vh;
   padding: 2rem;
@@ -10,18 +36,21 @@
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   direction: rtl;
+  color: var(--text-primary);
 }
 
 .main {
-  max-width: 930px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 4rem 3rem;
   background: var(--light-bg);
-  border-radius: 24px;
-  box-shadow: var(--shadow-lg);
+  border-radius: 2.5rem;
+  box-shadow: var(--shadow-xl);
   position: relative;
   overflow: hidden;
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
 }
 
 .main::before {
@@ -34,329 +63,264 @@
   background: var(--primary-gradient);
   filter: blur(80px);
   opacity: 0.1;
+  z-index: -1;
 }
 
-/* قسم الصورة الشخصية */
-.profileHeader {
+/********** قسم البطل **********/
+.heroSection {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.profileSphere {
   position: relative;
-  margin-bottom: 3rem;
-}
-
-.imageWrapper {
-  width: 180px;
-  height: 180px;
+  width: 400px;
+  height: 400px;
   margin: 0 auto;
-  border-radius: 50%;
-  padding: 4px;
-  background: var(--primary-gradient);
+}
+
+.holographicEffect {
   position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
+}
+
+.holographicImage {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
+}
+
+.techOrbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  animation: orbit 20s linear infinite;
+}
+
+.orbitIcon {
+  position: absolute;
+  font-size: 2.5rem;
+  color: var(--primary-500);
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+}
+
+@keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/********** الإحصائيات **********/
+.statsSection {
+  margin: 4rem 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.statCard {
+  padding: 2rem;
+  background: var(--glass-effect);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: var(--transition-smooth);
 }
 
-.imageWrapper:hover {
-  transform: scale(1.05) rotate(5deg);
+.statCard:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(145deg, rgba(99, 102, 241, 0.1), rgba(79, 70, 229, 0.15));
 }
 
-.profileImage {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid white;
-}
-
-.imageHoverEffect {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: var(--primary-gradient);
-  opacity: 0;
-  transition: var(--transition-fast);
-  mix-blend-mode: overlay;
-}
-
-.imageWrapper:hover .imageHoverEffect {
-  opacity: 0.3;
-}
-
-/* المعلومات الشخصية */
-.profileInfo {
-  position: relative;
-  z-index: 1;
-}
-
-.name {
-  font-size: 2.8rem;
+.statValue {
+  font-size: 2.5rem;
   font-weight: 800;
   background: var(--primary-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
-  position: relative;
-  display: inline-block;
 }
 
-.nameDecorator {
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
+.statProgressBar {
   height: 4px;
-  background: var(--primary-gradient);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
+  overflow: hidden;
 }
 
-.title {
-  font-size: 1.4rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  position: relative;
-  padding-bottom: 1rem;
-}
-
-.titleUnderline {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 2px;
-  background: var(--accent-color);
-}
-
-.bio {
-  color: var(--text-primary);
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(10px);
-}
-
-/* روابط التواصل */
-.socialLinks {
-  display: flex;
-  justify-content: center;
-  gap: 0.9rem;
-  margin: 3rem 0;
-}
-
-.socialLink {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 1rem 1.5rem;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(5px);
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: var(--transition-fast);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.socialLink:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  background: var(--accent-color);
-  color: white;
-}
-
-.socialIcon {
-  font-size: 1.4rem;
-}
-
-.linkArrow {
-  margin-left: 0.5rem;
-  opacity: 0.7;
-}
-
-/* قسم المشاريع */
-.projectsSection {
-  margin: 4rem 0;
-}
-
-.sectionTitle {
-  font-size: 2rem;
-  color: var(--text-primary);
-  text-align: center;
-  position: relative;
-  margin-bottom: 3rem;
-}
-
-.sectionTitleLine {
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
+.statProgressFill {
+  height: 100%;
   background: var(--primary-gradient);
-  border-radius: 2px;
+  transition: width 1.5s ease-in-out;
 }
 
-.projectsGrid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/********** المشاريع **********/
+.projectsMasonry {
+  column-count: 3;
+  column-gap: 2rem;
+  margin-top: 2rem;
 }
 
 .projectCard {
-  background: white;
-  border-radius: 16px;
+  break-inside: avoid;
+  margin-bottom: 2rem;
+  background: var(--glass-effect);
+  border-radius: 1.5rem;
   overflow: hidden;
-  transition: var(--transition-fast);
-  position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .projectCard:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-xl);
 }
 
-.projectContent {
-  padding: 2rem;
-}
-
-.projectTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.projectArrow {
-  color: var(--accent-color);
-  transition: var(--transition-fast);
-}
-
-.projectCard:hover .projectArrow {
-  transform: translateX(3px);
-}
-
-.projectDescription {
-  color: var(--text-secondary);
-  margin: 1rem 0;
-}
-
-.techStack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-}
-
-.techPill {
-  background: rgba(79, 70, 229, 0.1);
-  color: var(--accent-color);
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-/* زر الاتصال */
-.contactSection {
-  margin-top: 4rem;
-  text-align: center;
-}
-
-.contactButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.2rem 2.5rem;
-  border-radius: 50px;
-  background: var(--primary-gradient);
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
+.projectMedia {
   position: relative;
   overflow: hidden;
-  transition: var(--transition-fast);
 }
 
-.contactButton:hover {
+.projectImage {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.projectCard:hover .projectImage {
   transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-.buttonHoverEffect {
+.projectOverlay {
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg,
-      transparent 25%,
-      rgba(255, 255, 255, 0.1) 50%,
-      transparent 75%);
-  animation: shine 3s infinite;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-@keyframes shine {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
+/********** شبكة التواصل **********/
+.connectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
 }
 
-/* التكيف مع الشاشات الصغيرة */
-@media (max-width: 768px) {
-  .page {
-    padding: 1rem;
+.connectCard {
+  padding: 2rem;
+  border-radius: 1.5rem;
+  transition: var(--transition-smooth);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.linkedinCard {
+  background: rgba(10, 102, 194, 0.1);
+}
+
+.githubCard {
+  background: rgba(36, 41, 46, 0.1);
+}
+
+.contactCard {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.connectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.connectIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.connectCard:hover .connectIcon {
+  transform: scale(1.2);
+}
+
+/********** التكيف مع الشاشات **********/
+@media (max-width: 1024px) {
+  .projectsMasonry {
+    column-count: 2;
   }
 
-  .main {
-    padding: 2rem 1.5rem;
-    border-radius: 16px;
-  }
-
-  .name {
-    font-size: 2.2rem;
-  }
-
-  .projectsGrid {
+  .connectGrid {
     grid-template-columns: 1fr;
   }
 }
 
-/* الوضع المظلم */
-@media (prefers-color-scheme: dark) {
-  .main {
-    background: var(--dark-bg);
-    color: white;
+@media (max-width: 768px) {
+  .heroSection {
+    grid-template-columns: 1fr;
   }
 
-  .bio {
-    background: rgba(15, 23, 42, 0.7);
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projectsMasonry {
+    column-count: 1;
+  }
+}
+
+/********** الوضع المظلم **********/
+@media (prefers-color-scheme: dark) {
+  .main {
+    background: rgba(15, 23, 42, 0.95);
     color: #94a3b8;
   }
 
   .projectCard {
-    background: #1e293b;
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(30, 41, 59, 0.7);
   }
 
-  .techPill {
-    background: rgba(79, 70, 229, 0.2);
-  }
-
-  .socialLink {
-    background: rgba(15, 23, 42, 0.7);
-    color: white;
+  .statCard {
+    background: rgba(30, 41, 59, 0.5);
   }
 }
