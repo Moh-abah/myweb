@@ -1,14 +1,3 @@
-/* المتغيرات والألوان */
-:root {
-  --gold: #d4b062;
-  --gold-light: #f7e7a3;
-  --dark: #333;
-  --dark-overlay: rgba(0, 0, 0, 0.7);
-  --light-overlay: rgba(0, 0, 0, 0.4);
-  --text-light: #fff;
-  --text-dark: #333;
-  --transition: all 0.3s ease;
-}
 
 /* التصميم العام */
 .main {
