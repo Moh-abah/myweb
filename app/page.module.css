@@ -772,9 +772,7 @@
 }
 
 @media (max-width: 480px) {
-  html {
-    font-size: 14px;
-  }
+ 
 
   .heroTitle {
     font-size: 2rem;
