@@ -1,8 +1,7 @@
+import { Analytics } from "@vercel/analytics/react"
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,14 +31,13 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXX');
+            gtag('config', 'G-XXXXX'); 
           `}
         </Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
         <Analytics />
-        
       </body>
     </html>
   );
