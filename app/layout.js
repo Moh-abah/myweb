@@ -25,7 +25,11 @@ export default function RootLayout({ children }) {
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX"
+          
         />
+        <meta name="monetag" content="14d3c6282a73b50ca2d7fe969afe24d6">
+        
+        </meta>
         <Script id="google-analytics">
           {`
             window.dataLayer = window.dataLayer || [];
