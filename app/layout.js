@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="145708" async data-cfasync="false"></script>
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX"
@@ -39,7 +40,9 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
+      <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="145708" async data-cfasync="false"></script>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="145708" async data-cfasync="false"></script>
         {children}
         <Analytics />
       </body>

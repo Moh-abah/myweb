@@ -396,11 +396,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="145708" async data-cfasync="false"></script>
 
       {/* Footer */}
       <footer className={styles.footer}>
         <div className={styles.container}>
           <p className={styles.copyright}>&copy; {new Date().getFullYear()} محمد يحي عبه. جميع الحقوق محفوظة</p>
+          <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="145708" async data-cfasync="false"></script>
         </div>
       </footer>
 
