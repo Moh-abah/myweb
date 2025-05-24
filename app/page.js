@@ -37,7 +37,7 @@ export default function Home() {
     },
     {
       icon: <FaCode />,
-      title: "تطوير المواقع والمتاجر والتطبيقات",
+      title: "تطوير المواقع ",
       description: "إنشاء وتطوير مواقع ديناميكية وقابلة للتطوير باستخدام أحدث التقنيات البرمجية. حلول برمجية متقدمة لتطوير مواقع ديناميكية وقابلة للتخصيص."
     },
     {
@@ -63,8 +63,8 @@ export default function Home() {
     { icon: <SiReact />, name: "React" },
     { icon: <SiFlutter />, name: "Flutter" },
     { icon: <SiWordpress />, name: "WordPress" },
-    { icon: <SiLaravel />, name: "Laravel" },
-    { icon: <SiPhp />, name: "PHP" },
+    { icon: <SiLaravel />, name: "Python" },
+    { icon: <SiPhp />, name: "sql" },
     { icon: <SiJavascript />, name: "JavaScript" },
     { icon: <SiHtml5 />, name: "HTML5" },
     { icon: <SiCss3 />, name: "CSS3" }
@@ -78,7 +78,7 @@ export default function Home() {
           <div className={styles.logo}>
             <Link href="/profile.jpg">
               <div className={styles.logoText}>
-                <span className={styles.logoName}>محمد_</span>
+                <span className={styles.logoName}> محمد عبه</span>
               </div>
             </Link>
           </div>
@@ -110,10 +110,10 @@ export default function Home() {
                 الرسمي للمهندس: <span className={styles.highlight}>محمد يحي عبه</span>
               </h1>
               <p className={styles.heroDescription}>
-                مطور ويب وموبايل متخصص في Next.js وFlutter
+                مطور ويب وموبايل يعمل  Next.js وFlutter
                 <br />
-                تجاوزت 12 عام في إنشاء المواقع الإلكترونية وتطبيقات الجوال الاحترافية، مع سابقة أعمال متفرقة لمشاريع
-                كبرى، والتي كان دور مشروعك
+                اعمل على إنشاء المواقع الإلكترونية وتطبيقات الجوال الاحترافية، مع سابقة أعمال متفرقة لمشاريع
+                كبرى،والتي كانت بدورها متعدده لتلبيه حاجه العملاء المختلفه وبتقنيات مختلفه 
               </p>
               <button className={styles.contactButton}>تواصل معي الآن</button>
             </div>
@@ -130,7 +130,7 @@ export default function Home() {
               </div>
               <div className={styles.profileInfo}>
                 <p className={styles.profileName}>- محمد يحي عبه -</p>
-                <p className={styles.profileTitle}>استشاري تقني مصمم ومبرمج مواقع وتطبيقات</p>
+                <p className={styles.profileTitle}>  مهندس برمجيات  </p>
               </div>
             </div>
           </div>
