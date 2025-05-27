@@ -38,6 +38,8 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-XXXXX'); 
           `}
         </Script>
+
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="nN7sCiUIwSJtNgOEzrjO2A" async></script>
       </head>
       <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="145708" async data-cfasync="false"></script>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
