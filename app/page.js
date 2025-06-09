@@ -166,20 +166,20 @@ export default function Home() {
               </div>
               <div className={styles.statsGrid}>
                 <div className={styles.statItem}>
-                  <span className={styles.statValue}>+12</span>
+                  <span className={styles.statValue}>+2</span>
                   <span className={styles.statLabel}>سنوات من الخبرة</span>
                 </div>
                 <div className={styles.statItem}>
-                  <span className={styles.statValue}>+100</span>
-                  <span className={styles.statLabel}>مشروع مكتمل</span>
+                  <span className={styles.statValue}>+4</span>
+                  <span className={styles.statLabel}>مشاريع مكتمله </span>
                 </div>
                 <div className={styles.statItem}>
-                  <span className={styles.statValue}>+50</span>
+                  <span className={styles.statValue}>+4</span>
                   <span className={styles.statLabel}>عميل سعيد</span>
                 </div>
                 <div className={styles.statItem}>
-                  <span className={styles.statValue}>+20</span>
-                  <span className={styles.statLabel}>تقنية مستخدمة</span>
+                  <span className={styles.statValue}>+9</span>
+                  <span className={styles.statLabel}>تقنيات مستخدمة</span>
                 </div>
               </div>
             </div>
